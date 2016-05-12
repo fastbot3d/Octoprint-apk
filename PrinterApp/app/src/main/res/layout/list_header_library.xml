@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/content_padding_xsmall"
+    android:paddingLeft="@dimen/content_padding_xsmall"
+    android:paddingRight="@dimen/content_padding_xsmall">
+
+    <!-- Model icon -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight=".2"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/go_back_icon"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_action_arrow_back"
+                android:background="@drawable/selectable_rect_background_gray"
+                android:layout_toRightOf="@+id/select_model_checkbox"/>
+
+            <!-- DUMMIE CHECKBOX -->
+            <CheckBox
+                android:id="@+id/select_model_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:clickable="false"
+                android:focusableInTouchMode="false"
+                android:focusable="false"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <!-- Model name -->
+    <TextView
+        android:id="@+id/model_name_column_textview"
+        style="@style/ModelName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2.8"
+        android:ellipsize="middle"
+        android:text="@string/library_list_go_back_tag" />
+
+    <!-- Last modification date -->
+    <TextView
+        android:id="@+id/model_mod_date_column_textview"
+        style="@style/ModelDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.7"/>
+
+    <!-- Dummie column -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight=".3"
+        android:gravity="center"
+        android:visibility="invisible">
+
+        <ImageButton
+            android:id="@+id/model_settings_imagebutton"
+            android:padding="@dimen/content_margin_xsmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selectable_rect_background_gray"
+            android:src="@drawable/ic_more_vert" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

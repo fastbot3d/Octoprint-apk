@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pager_background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!-- Left navigation menu -->
+        <LinearLayout
+            android:id="@+id/library_nav_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/content_padding_small"
+            android:paddingLeft="@dimen/content_padding_large"
+            android:paddingRight="@dimen/content_padding_normal"
+            android:paddingTop="@dimen/content_padding_small">
+
+            <TextView
+                android:id="@+id/library_nav_all_models"
+                style="@style/SelectedNavigationMenuItem"
+                android:text="Local   " />
+                <!--lkj android:text="@string/library_models_all" /> -->
+
+            <!--lkj <TextView
+                android:id="@+id/library_nav_local_models"
+                style="@style/NavigationMenuItem"
+                android:text="@string/library_models_local" />  -->
+
+            <TextView
+                android:id="@+id/library_nav_printer_models"
+                style="@style/NavigationMenuItem"
+                android:text="@string/library_models_printers" />
+
+			<!-- lkj 
+            <TextView
+                android:id="@+id/library_nav_fav_models"
+                style="@style/NavigationMenuItem"
+                android:text="@string/library_models_favorites" />
+			-->
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/library_models_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/list_storage_header"
+                layout="@layout/list_header_library" />
+
+            <uk.co.androidalliance.edgeeffectoverride.ListView
+                android:id="@+id/list_storage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/content_padding_small"
+                app:edgeeffect_color="@color/theme_accent_1"/>
+
+            <LinearLayout
+                android:id="@+id/library_empty_view"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/icon_empty_models"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/content_margin_large"/>
+
+                <TextView
+                    android:layout_width="400dp"
+                    android:textSize="15sp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/library_empty_text"
+                    android:gravity="center"
+                    android:layout_gravity="center"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/content_margin_normal">
+
+                    <com.material.widget.PaperButton
+                        android:id="@+id/obtain_models_button"
+                        style="@style/MaterialDesignButton.Raised"
+                        android:layout_gravity="center"
+                        android:layout_width="250dp"
+                        android:layout_margin="@dimen/content_margin_normal"
+                        app:paper_text="@string/library_menu_models"
+                        app:paper_text_color="@color/body_text_2" />
+
+                    <com.material.widget.PaperButton
+                        android:id="@+id/scan_device_button"
+                        style="@style/MaterialDesignButton.Raised"
+                        android:layout_gravity="center"
+                        android:layout_width="250dp"
+                        android:layout_margin="@dimen/content_margin_normal"
+                        app:paper_text="@string/library_menu_scan"
+                        app:paper_text_color="@color/body_text_2" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,66 @@
+
+-dontwarn
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontpreverify
+-verbose
+-dontshrink
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+
+-keepattributes *Annotation*
+-dontwarn com.google.ads.**
+-dontwarn org.w3c.dom.**
+-dontwarn org.joda.**
+
+
+-keep class org.w3c.dom.** { *; }
+-keep class org.w3c.dom.bootstrap.** { *; }
+-keep class org.codehaus.** { *; }
+-keep class org.yaml.snakeyaml.** { *; }
+-keep class org.joda.time.** { *; }
+-keep class com.google.** { *; }
+-keep class com.android.** { *; }
+-keep class android.support.** { *; }
+
+
+-keep public class * extends Android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keepclassmembers class * extends android.app.Activity {
+   public void *(android.view.View);
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+
+-assumenosideeffects class android.util.Log {
+	public static *** d(...);
+	public static *** v(...);
+	public static *** i(...);
+}
+

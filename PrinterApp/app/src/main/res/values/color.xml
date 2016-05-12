@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- GENERAL COLORS -->
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="gray">#60000000</color>
+    <color name="dark_gray">#90000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="almost_transparent">#22000000</color>
+    <color name="dark_almost_transparent">#88cccccc</color>
+
+    <!-- THEME COLORS -->
+    <color name="theme_primary">#5BB433</color>
+    <color name="theme_primary_dark">#169300</color>
+    <color name="theme_primary_light">#557bdd3b</color>
+    <color name="shadow">#77000000</color>
+    <color name="almost_white">#FAFAFA</color>
+    <color name="theme_error">#f36c60</color>
+
+    <color name="pager_background">#EEEEEE</color>
+
+    <color name="body_text_1">#de000000</color>
+    <color name="body_text_2">#8a000000</color>
+    <color name="body_text_3">#60000000</color>
+    <color name="body_text_disabled">#44000000</color>
+
+    <color name="body_text_1_inverse">#deffffff</color>
+    <color name="body_text_2_inverse">#8affffff</color>
+
+    <color name="theme_accent_1">@color/theme_primary</color>
+    <color name="theme_accent_1_light">@color/theme_primary_light</color>
+
+    <color name="theme_accent_2">#e91e63</color>
+
+    <color name="green_background">#ffd6fbad</color>
+    <color name="gray_background">#e5e5e5</color>
+    <color name="dark_divider">#32000000</color>
+    <color name="separator_background">#11000000</color>
+
+    <color name="navdrawer_background">#ffffffff</color>
+    <color name="navdrawer_background_selected">@color/green_background</color>
+    <color name="navdrawer_text_color">@color/body_text_2</color>
+    <color name="navdrawer_text_color_selected">@color/theme_primary_dark</color>
+    <color name="navdrawer_icon_tint">@color/body_text_2</color>
+    <color name="navdrawer_icon_tint_selected">@color/theme_primary_dark</color>
+
+    <color name="navmenu_text_color">@color/body_text_2</color>
+    <color name="navmenu_text_color_selected">@color/body_text_1</color>
+
+    <color name="refresh_progress_1">@color/theme_accent_2</color>
+    <color name="refresh_progress_2">@color/theme_accent_1</color>
+    <color name="refresh_progress_3">@color/theme_primary_dark</color>
+    <color name="refresh_progress_4">@color/theme_primary_light</color>
+
+    <color name="data_item_background_light">#ffffff</color>
+    <color name="data_item_lightbg_title">#404040</color>
+    <color name="data_item_lightbg_body_text">#707070</color>
+    <color name="data_item_lightbg_dim_text">#e0e0e0</color>
+    <color name="translucent_actionbar_background">#cc3f51b5</color>
+
+    <color name="tab_background">@color/theme_primary</color>
+    <color name="tab_selected_strip">@color/theme_accent_1</color>
+
+    <color name="drag_and_drop_hover_background">@color/theme_primary_light</color>
+
+    <color name="printer_view_bottom_bar">#7e7e7e</color>
+
+    <color name="material_pink_500">#E91E63</color>
+</resources>

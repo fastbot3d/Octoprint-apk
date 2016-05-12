@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:widget="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:padding="3dp">
+
+        <TextView
+            android:id="@+id/detailview_list_tv1"
+            style="@style/ModelName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="Nombre.stl"
+            android:textSize="@dimen/text_size_medium"
+            android:layout_toLeftOf="@+id/buttons_container"
+            android:layout_toStartOf="@+id/buttons_container" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/content_padding_xsmall"
+        android:id="@+id/buttons_container">
+
+        <com.material.widget.PaperButton
+            android:id="@+id/detailview_list_iv1"
+            style="@style/MaterialDesignButton.Raised.Default"
+            android:layout_width="130dp"
+            widget:paper_text="@string/library_quick_print_model" />
+
+
+        <com.material.widget.PaperButton
+            android:id="@+id/detailview_list_iv2"
+            style="@style/MaterialDesignButton.Raised.Default"
+            android:layout_width="130dp"
+            widget:paper_text="@string/library_print_model" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

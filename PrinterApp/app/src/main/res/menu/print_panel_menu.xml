@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+     <item
+        android:id="@+id/viewer_open"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_folder_open"
+        android:title="@string/viewer_menu_open"/>
+      
+<!-- lkj 
+    <item
+        android:id="@+id/viewer_save"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_save"
+        android:title="@string/viewer_menu_save"/>
+
+    <item
+        android:id="@+id/viewer_restore"
+        app:showAsAction="never"
+        android:title="@string/viewer_menu_restore"/>
+
+    <item
+        android:id="@+id/viewer_clean"
+        app:showAsAction="never"
+        android:title="@string/viewer_menu_clean"/>
+-->
+
+    <item
+        android:id="@+id/library_settings"
+        android:title="@string/fragment_settings"
+        app:showAsAction="never" />
+
+</menu>

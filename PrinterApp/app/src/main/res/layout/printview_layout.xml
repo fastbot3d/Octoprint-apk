@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sliding_panel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pager_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="@dimen/content_padding_xsmall"
+        android:weightSum="2">
+
+        <!-- Left panel. Include the progress info and extruder options -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="@dimen/content_padding_small">
+
+            <include
+                android:id="@+id/include"
+                layout="@layout/printview_options_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+
+        </LinearLayout>
+
+        <!-- Right panel. Include a tab host with two views: video and render 3D -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="@dimen/content_padding_xsmall">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/progress_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+                <TabHost
+                    android:id="@+id/printviews_tabhost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/printview_camera"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TabWidget
+                            android:id="@android:id/tabs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="@dimen/content_margin_xsmall"
+                            />
+
+                        <FrameLayout
+                            android:id="@android:id/tabcontent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@android:id/tabs">
+
+                            <!-- VIDEO VIEW -->
+                            <FrameLayout
+                                android:id="@+id/printview_video"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/black">
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:id="@+id/videocam_off_layout">
+<!--lkj
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:id="@+id/videocam_off_icon"
+                                        android:src="@drawable/ic_videocam_off_gray"/>
+-->
+                                    <android.app.printerapp.devices.camera.MjpegView
+                                        android:id="@+id/mv"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        />
+
+                                  <!--  <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:id="@+id/videocam_off_text"
+                                        android:layout_below="@id/mv"
+                                        android:layout_margin="20dp"
+                                        android:textColor="@color/white"
+
+                                        android:text="@string/printview_video_error"/> -->
+
+                                    </RelativeLayout>
+
+
+                                 </FrameLayout>
+
+                            <!-- 3D RENDER VIEW -->
+                            <android.app.printerapp.util.ui.DisableFrameLayout
+                                android:id="@+id/view_gcode"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/black"
+                                >
+
+                                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:background="@color/almost_white"
+                                        android:padding="@dimen/content_padding_xsmall">
+
+                                        <TextView
+                                            style="@style/SectionHeader"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:focusable="true"
+                                            android:text="@string/printview_motors_switch" />
+
+                                        <com.material.widget.PaperButton
+                                            android:id="@+id/printview_motors_on"
+                                            style="@style/MaterialDesignButton.Flat.Default"
+                                            android:layout_centerHorizontal="true"
+                                            android:layout_width="130dp"
+                                            android:layout_marginLeft="20dp"
+                                            android:layout_marginRight="22dp"
+                                            app:paper_text="@string/printview_motor_on_button" />
+
+                                        <com.material.widget.PaperButton
+                                            android:id="@+id/printview_motors_off"
+                                            style="@style/MaterialDesignButton.Flat.Default"
+                                            android:layout_centerHorizontal="true"
+                                            android:layout_width="130dp"
+                                            app:paper_text="@string/printview_motor_on_buttoff" />
+
+                                  <!--      <android.support.v7.widget.SwitchCompat
+                                            android:id="@+id/printview_motors_switch"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="@dimen/content_padding_xsmall" /> -->
+
+                                    </LinearLayout>
+
+                                    <!--lkj      <android.support.v7.widget.CardView
+                                                    android:id="@+id/printer_select_card_view"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:background="@color/white"> -->
+                                                  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                      android:layout_width="match_parent"
+                                                      android:layout_height="match_parent"
+                                                      android:orientation="vertical"
+                                                      android:background="@color/almost_white"
+                                                      >
+
+                                                      <android.app.printerapp.util.ui.LockableScrollView
+                                                          android:layout_width="wrap_content"
+                                                          android:layout_height="wrap_content"
+
+                                                          >
+                                                          <!-- app:scroll_effect_color="@color/theme_accent_1" -->
+                                                          <LinearLayout
+                                                              android:layout_width="wrap_content"
+                                                              android:layout_height="wrap_content"
+                                                              android:orientation="vertical"
+                                                              android:paddingRight="@dimen/content_padding_normal">
+
+                                                              <LinearLayout
+                                                                  android:layout_width="match_parent"
+                                                                  android:layout_height="wrap_content"
+                                                                  android:layout_gravity="center_horizontal"
+                                                                  android:orientation="vertical">
+
+                                                                  <LinearLayout
+                                                                      android:layout_width="wrap_content"
+                                                                      android:layout_height="wrap_content"
+                                                                      android:layout_gravity="center"
+                                                                      android:gravity="center"
+                                                                      android:orientation="horizontal">
+
+                                                                      <LinearLayout
+                                                                          android:id="@+id/llcont"
+                                                                          android:layout_width="wrap_content"
+                                                                          android:layout_height="wrap_content">
+
+
+                                                                          <!-- X/Y CONTROLS -->
+                                                                <LinearLayout
+                                                                    android:id="@+id/rlXY"
+                                                                    android:layout_width="wrap_content"
+                                                                    android:layout_height="wrap_content"
+                                                                    android:layout_margin="@dimen/content_margin_small"
+                                                                    android:gravity="center_horizontal">
+
+                                                                    <TextView
+                                                                        android:id="@+id/text_xy"
+                                                                        style="@style/SectionHeader"
+                                                                        android:layout_width="wrap_content"
+                                                                        android:layout_height="wrap_content"
+                                                                        android:layout_gravity="start"
+                                                                        android:text="X/Y" />
+
+                                                                    <ImageButton
+                                                                        android:id="@+id/button_xy_left"
+                                                                        style="@style/PrintViewActionButton"
+                                                                        android:src="@drawable/ic_arrow_left" />
+
+                                                                    <LinearLayout
+                                                                        android:id="@+id/llv_xy"
+                                                                        android:layout_width="wrap_content"
+                                                                        android:layout_height="wrap_content"
+                                                                        android:layout_gravity="center_vertical"
+                                                                        android:orientation="vertical">
+
+                                                                        <ImageButton
+                                                                            android:id="@+id/button_xy_up"
+                                                                            style="@style/PrintViewActionButton"
+                                                                            android:src="@drawable/ic_arrow_up" />
+
+                                                                        <ImageButton
+                                                                            android:id="@+id/button_xy_home"
+                                                                            style="@style/PrintViewActionButton"
+                                                                            android:layout_margin="@dimen/content_margin_xsmall"
+                                                                            android:padding="@dimen/content_padding_small"
+                                                                            android:src="@drawable/ic_home_white_24dp" />
+
+                                                                        <ImageButton
+                                                                            android:id="@+id/button_xy_down"
+                                                                            style="@style/PrintViewActionButton"
+                                                                            android:src="@drawable/ic_arrow_down" />
+
+                                                                    </LinearLayout>
+
+                                                                    <ImageButton
+                                                                        android:id="@+id/button_xy_right"
+                                                                        style="@style/PrintViewActionButton"
+                                                                        android:src="@drawable/ic_arrow_right" />
+                                                                </LinearLayout>
+
+                                                                <!-- Z CONTROLS -->
+                                                                <LinearLayout
+                                                                    android:layout_width="wrap_content"
+                                                                    android:layout_height="wrap_content"
+                                                                    android:layout_margin="@dimen/content_margin_small"
+                                                                    android:orientation="horizontal">
+
+                                                                    <TextView
+                                                                        android:id="@+id/text_z"
+                                                                        style="@style/SectionHeader"
+                                                                        android:layout_width="wrap_content"
+                                                                        android:layout_height="wrap_content"
+                                                                        android:layout_gravity="start"
+                                                                        android:text="Z" />
+
+                                                                    <!--<ImageButton-->
+                                                                    <!--android:id="@+id/button_z_home"-->
+                                                                    <!--android:layout_width="0dp"-->
+                                                                    <!--android:layout_height="wrap_content"-->
+                                                                    <!--android:layout_gravity="center_vertical"-->
+                                                                    <!--android:layout_weight="1"-->
+                                                                    <!--android:background="@drawable/oval_background_gray"-->
+                                                                    <!--android:src="@drawable/ic_home_white_24dp" />-->
+
+                                                                    <LinearLayout
+                                                                        android:id="@+id/llv_z"
+                                                                        android:layout_width="wrap_content"
+                                                                        android:layout_height="wrap_content"
+                                                                        android:layout_gravity="center_vertical"
+                                                                        android:orientation="vertical">
+
+                                                                        <ImageButton
+                                                                            android:id="@+id/button_z_up"
+                                                                            style="@style/PrintViewActionButton"
+                                                                            android:src="@drawable/ic_arrow_up" />
+
+                                                                        <ImageButton
+                                                                            android:id="@+id/button_z_home"
+                                                                            style="@style/PrintViewActionButton"
+                                                                            android:layout_margin="@dimen/content_margin_xsmall"
+                                                                            android:padding="@dimen/content_padding_small"
+                                                                            android:src="@drawable/ic_home_white_24dp" />
+
+                                                                        <ImageButton
+                                                                            android:id="@+id/button_z_down"
+                                                                            style="@style/PrintViewActionButton"
+                                                                            android:src="@drawable/ic_arrow_down" />
+                                                                    </LinearLayout>
+                                                                </LinearLayout>
+
+                                                            </LinearLayout>
+
+                                                        </LinearLayout>
+
+                                                        <LinearLayout
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="wrap_content"
+                                                            android:orientation="horizontal">
+
+                                                            <TextView
+                                                                android:id="@+id/text_01mm"
+                                                                style="@style/TextInfo"
+                                                                android:layout_width="0dp"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_gravity="start"
+                                                                android:layout_weight="1"
+                                                                android:text="0.1mm" />
+
+                                                            <TextView
+                                                                android:id="@+id/text_1mm"
+                                                                style="@style/TextInfo"
+                                                                android:layout_width="0dp"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_gravity="start"
+                                                                android:layout_weight="1"
+                                                                android:gravity="center"
+                                                                android:text="1mm           " />
+
+                                                            <TextView
+                                                                android:id="@+id/text_10mm"
+                                                                style="@style/TextInfo"
+                                                                android:layout_width="0dp"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_gravity="start"
+                                                                android:layout_weight="1"
+                                                                android:gravity="center"
+                                                                android:text="          10mm" />
+
+                                                            <TextView
+                                                                android:id="@+id/text_100mm"
+                                                                style="@style/TextInfo"
+                                                                android:layout_width="0dp"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_gravity="start"
+                                                                android:layout_weight="1"
+                                                                android:gravity="right"
+                                                                android:text="100mm" />
+
+
+                                                        </LinearLayout>
+
+                                                        <SeekBar
+                                                            android:id="@+id/seekbar_head_movement_amount"
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="wrap_content"
+                                                            android:max="3" />
+
+                                                        <LinearLayout
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="wrap_content"
+                                                            android:orientation="vertical">
+                                                                <TextView
+                                                                    android:id="@+id/text_xy_speed"
+                                                                    style="@style/TextInfo"
+                                                                    android:layout_width="150dp"
+                                                                    android:layout_height="wrap_content"
+                                                                    android:text="@string/printview_xy_speed_text" />
+                                                                <SeekBar
+                                                                    android:id="@+id/seekbar_xy_speed"
+                                                                    android:layout_width="match_parent"
+                                                                    android:layout_height="wrap_content"
+                                                                    android:max="300" />
+
+                                                                <TextView
+                                                                    android:id="@+id/text_z_speed"
+                                                                    style="@style/TextInfo"
+                                                                    android:layout_width="150dp"
+                                                                    android:layout_height="wrap_content"
+                                                                    android:text="@string/printview_z_speed_text" />
+                                                                <SeekBar
+                                                                    android:id="@+id/seekbar_z_speed"
+                                                                    android:layout_width="match_parent"
+                                                                    android:layout_height="wrap_content"
+                                                                    android:max="300" />
+                                                        </LinearLayout>
+                                                    </LinearLayout>
+
+
+                                                    <!-- Separation line -->
+                                                    <View style="@style/HorizontalSeparator" />
+
+                                                    <!-- Fans on and Motors off buttons -->
+                                                    <LinearLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_margin="@dimen/content_margin_small"
+                                                        android:orientation="vertical">
+                                                        <!--lkj android:gravity="center" -->
+
+                                              <!--          <LinearLayout
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:orientation="horizontal"
+                                                            android:padding="@dimen/content_padding_xsmall">
+
+                                                            <TextView
+                                                                style="@style/SectionHeader"
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:text="@string/printview_motors_switch" />
+
+                                                            <android.support.v7.widget.SwitchCompat
+                                                                android:id="@+id/printview_motors_switch"
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:padding="@dimen/content_padding_xsmall" />
+                                                        </LinearLayout>
+                                                        -->
+
+                                                        <LinearLayout
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:orientation="vertical"
+                                                            android:padding="@dimen/content_padding_xsmall">
+
+                                                            <TextView
+                                                                style="@style/SectionHeader"
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:text="@string/printview_fans_switch" />
+
+                                                            <LinearLayout
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:orientation="horizontal"
+                                                                android:padding="@dimen/content_padding_xsmall">
+                                                                <Spinner
+                                                                    android:id="@+id/fan_spinner"
+                                                                    android:layout_width="50dp"
+                                                                    android:layout_height="wrap_content" />
+
+                                                                <SeekBar
+                                                                    android:id="@+id/seekbar_fan_speed"
+                                                                    android:layout_width="200dp"
+                                                                    android:layout_height="wrap_content"
+                                                                    android:layout_marginLeft="10dp"
+                                                                    android:layout_marginRight="10dp"
+                                                                    android:max="255" />
+
+                                                                <com.material.widget.PaperButton
+                                                                    android:id="@+id/btn_fan_speed"
+                                                                    style="@style/MaterialDesignButton.Flat.Default"
+                                                                    android:layout_centerHorizontal="true"
+                                                                    android:layout_width="130dp"
+                                                                    app:paper_text="@string/printview_fan_button" />
+
+    <!-- lkj
+                                                                <android.support.v7.widget.SwitchCompat
+                                                                    android:id="@+id/printview_fans_switch"
+                                                                    android:layout_width="wrap_content"
+                                                                    android:layout_height="wrap_content"
+                                                                    android:padding="@dimen/content_padding_xsmall" />
+    -->
+                                                            </LinearLayout>
+
+                                                        </LinearLayout>
+                                                    </LinearLayout>
+
+
+
+                                                </LinearLayout>
+                                            </android.app.printerapp.util.ui.LockableScrollView>
+                                        </LinearLayout>
+                                  <!--lkj  </android.support.v7.widget.CardView> -->
+
+                                </LinearLayout>
+
+
+                                </android.app.printerapp.util.ui.DisableFrameLayout>
+
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+                </TabHost>
+
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

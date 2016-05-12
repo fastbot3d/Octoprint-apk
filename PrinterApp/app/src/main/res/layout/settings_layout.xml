@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pager_background"
+    android:orientation="horizontal">
+
+    <!-- Left navigation menu -->
+    <LinearLayout
+        android:id="@+id/settings_nav_menu"
+        android:layout_width="@dimen/settings_left_nav_panel_width"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/content_padding_small"
+        android:paddingLeft="@dimen/content_padding_large"
+        android:paddingTop="@dimen/content_padding_normal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/settings_nav_general_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_settings" />
+
+            <TextView
+                android:id="@+id/settings_nav_general_textview"
+                style="@style/SelectedNavigationMenuItem"
+                android:text="@string/settings_general" />
+
+        </LinearLayout>
+
+
+        <View
+            style="@style/HorizontalSeparator"
+            android:layout_marginBottom="@dimen/content_margin_xsmall"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="@dimen/content_margin_xsmall" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/settings_nav_devices_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_settings_printer" />
+
+            <TextView
+                android:id="@+id/settings_nav_devices_textview"
+                style="@style/NavigationMenuItem"
+                android:text="@string/settings_devices" />
+
+        </LinearLayout>
+
+        <View
+            style="@style/HorizontalSeparator"
+            android:layout_marginBottom="@dimen/content_margin_xsmall"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="@dimen/content_margin_xsmall" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/settings_nav_about_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_help" />
+
+            <TextView
+                android:id="@+id/settings_nav_about_textview"
+                style="@style/NavigationMenuItem"
+                android:text="@string/settings_about" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!-- Card view -->
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="-8dp"
+        android:layout_marginRight="@dimen/content_margin_normal"
+        android:layout_marginTop="@dimen/content_margin_small"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:id="@+id/settings_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" />
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

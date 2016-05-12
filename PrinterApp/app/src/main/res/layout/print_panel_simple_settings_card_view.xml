@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:widget="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_container_linear_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/simple_options_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/content_padding_normal"
+            android:paddingRight="@dimen/content_padding_normal"
+            android:paddingTop="@dimen/content_padding_normal"
+            android:paddingBottom="@dimen/content_padding_small">
+
+            <!-- Select printer settings -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/viewer_select_printer_layout"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/type_select_title"
+                        style="@style/TextHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@string/viewer_printer_type_text" />
+
+                    <Spinner
+                        android:id="@+id/type_spinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/viewer_no_printer_layout"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_signal_wifi_off"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        style="@style/TextHeader"
+                        android:padding="@dimen/content_padding_small"
+                        android:text="@string/viewer_printer_error"/>
+
+                    <com.material.widget.PaperButton
+                        android:id="@+id/connect_printer_button"
+                        style="@style/MaterialDesignButton.Raised.Default"
+                        android:layout_width="150dp"
+                        widget:paper_text="@string/viewer_connect_button" />
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+            <!-- Separation line -->
+            <View
+                style="@style/HorizontalSeparator"
+                android:layout_marginBottom="@dimen/content_margin_small"
+                android:layout_marginTop="@dimen/content_margin_small"/>
+
+            <!-- Simple settings -->
+            <LinearLayout
+                android:id="@+id/simple_settings_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                //TODO Acercas o alejar el grid de relleno en función del valor de la seekbar
+
+//                Bitmap resizedbitmap = Bitmap.createScaledBitmap(gridResource, progress, progress, true);<!-- FILL SETTINGS -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/infill_title_view"
+                        style="@style/TextHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/viewer_settings_infill" />
+
+                    <RelativeLayout
+                        android:id="@+id/infill_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/content_padding_xsmall">
+
+                        <TextView
+                            android:id="@+id/infill_number_view"
+                            android:layout_width="35dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_toLeftOf="@+id/dropdown_grey_imageview"
+                            android:layout_toStartOf="@+id/dropdown_grey_imageview" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_arrow_drop_down_grey"
+                            android:id="@+id/dropdown_grey_imageview"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true" />
+                        </RelativeLayout>
+
+                </LinearLayout>
+
+                <!-- SUPPORT SETTINGS -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingRight="@dimen/content_padding_small"
+                    android:paddingLeft="@dimen/content_padding_small">
+
+                    <TextView
+                        android:id="@+id/support_title_view"
+                        style="@style/TextHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@string/viewer_settings_support" />
+
+                    <Spinner
+                        android:id="@+id/support_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <!-- ADHESION SETTINGS -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/adhesion_title_view"
+                        style="@style/TextHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@string/viewer_settings_adhesion" />
+
+                    <Spinner
+                        android:id="@+id/adhesion_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

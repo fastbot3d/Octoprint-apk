@@ -1,0 +1,14 @@
+
+1.App name -> CreatorK
+2.App Icon
+3.Splash image
+
+4.File scan , skip /sdcard1/ (sdcard1 belong to korean internal memory)
+src/main/java/android/app/printerapp/library/FileScanner.java
+      /* for korean
+        String sdCard1Path = "/storage/sdcard1/";
+        startScan(sdCard1Path);
+        handler.sendMessage(handler.obtainMessage(1001, 60, 0));
+      */
+
+
